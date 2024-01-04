@@ -1,0 +1,15 @@
+:host {
+  ::ng-deep {
+    .mat-mdc-raised-button.mat-mdc-button-base {
+      padding: 0 1.3125rem;
+    }
+  }
+}
+
+.calculator-form {
+  padding: 1.25rem 1.25rem 0;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+}

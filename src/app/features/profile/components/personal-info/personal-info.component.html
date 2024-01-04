@@ -1,0 +1,115 @@
+<div class="personal">
+  <h3 class="personal__info">Personal info</h3>
+  <div class="personal__bio bio">
+    <div class="bio__user user">
+      <div class="user__avatar">
+        <label for="avatar" class="user__avatar-photo">
+          <img [src]="getAvatar()" alt="avatar" />
+        </label>
+        <input
+          id="avatar"
+          hidden
+          type="file"
+          (change)="handleFileInput($event)"
+        />
+      </div>
+      <div class="user__name">
+        <h3 class="user__name-title">
+          {{ user?.first_name || "User" }}
+        </h3>
+        <a routerLink="" class="user__name-change">Change password</a>
+      </div>
+    </div>
+    <form
+      [formGroup]="personDataForm"
+      (ngSubmit)="updateUser()"
+      class="bio__person-details person-details"
+    >
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="first-name"
+          >First Name</label
+        >
+        <input
+          id="first-name"
+          class="person-details__block-field"
+          type="text"
+          formControlName="first_name"
+          required
+        />
+      </div>
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="last-name"
+          >Last Name</label
+        >
+        <input
+          id="last-name"
+          class="person-details__block-field"
+          type="text"
+          formControlName="last_name"
+          required
+        />
+      </div>
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="date_of_birth"
+          >Date of birth</label
+        >
+        <input
+          id="date_of_birth"
+          class="person-details__block-field"
+          type="date"
+          max="{{ getMaxDate() | date : 'yyyy-MM-dd' }}"
+          formControlName="date_of_birth"
+          required
+        />
+      </div>
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="gender">Gender</label>
+        <select
+          for="gender"
+          formControlName="gender"
+          class="person-details__block-field"
+        >
+          <option disabled hidden value="">Select gender</option>
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+        </select>
+      </div>
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="location"
+          >Location</label
+        >
+        <select
+          for="location"
+          formControlName="city_of_residence"
+          class="person-details__block-field"
+        >
+          <option disabled hidden value="">Select location</option>
+          <option value="1">Phuket</option>
+          <option value="2">Bangkok</option>
+        </select>
+      </div>
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="email">Email</label>
+        <input
+          id="email"
+          class="person-details__block-field"
+          type="email"
+          formControlName="email"
+        />
+      </div>
+      <div class="person-details__block">
+        <label class="person-details__block-name" for="phone">Phone</label>
+        <input
+          id="phone"
+          class="person-details__block-field"
+          [showMaskTyped]="true"
+          formControlName="phone"
+          mask="00 0000 000"
+          matInput
+          prefix="+66"
+        />
+      </div>
+      <button type="submit" color="primary" mat-raised-button>Update</button>
+    </form>
+  </div>
+</div>

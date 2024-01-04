@@ -1,0 +1,23 @@
+<div class="owner flex flex--column flex--gap-1rem">
+    <p class="owner__label text--bold">Owner</p>
+    <div class="owner-info flex flex--gap-1rem">
+        <div class="owner-info__avatar">
+            <mat-icon class="avatar__icon">person</mat-icon>
+        </div>
+        <div class="owner-info__data">
+            <div class="owner-info__name name">
+                <p class="name__text text--bold">User Name</p>
+                <p class="name__text">Poland</p>
+            </div>
+            <button (click)="togglePanel()"
+                    mat-stroked-button>
+                {{panelOpenState ? 'Hide' : 'Show'}} contacts
+            </button>
+        </div>
+    </div>
+    <div *ngIf="panelOpenState"
+         class="owner-info">
+        <p>Contacts</p>
+    </div>
+</div>
+

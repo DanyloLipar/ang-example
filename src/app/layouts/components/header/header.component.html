@@ -1,0 +1,55 @@
+<header class="header">
+  <div class="header__container flex flex--align-center flex--justify-between">
+    <a routerLink="/" class="header__logo">Logo</a>
+    <div class="header__account flex flex--align-center flex--gap-1rem">
+      <p>EN</p>
+      <div
+        *ngIf="!isAuthenticated; else authenticated"
+        class="flex flex--align-center flex--gap-05rem"
+      >
+        <button (click)="logIn()" color="primary" mat-raised-button>
+          Log in
+        </button>
+      </div>
+      <ng-template #authenticated>
+        <mat-icon style="color: #7596d2">notifications_none</mat-icon>
+        <div
+          class="flex flex--align-center flex--gap-05rem account-menu"
+          (mouseenter)="showPopup()"
+          (mouseleave)="hidePopup()"
+        >
+          <mat-icon style="color: #7596d2">person_outline</mat-icon>
+          <span>Account</span>
+          <div
+            class="menu-list"
+            *ngIf="isHovered || isOpen"
+            [@fadeInOutAnimation]
+          >
+            <div class="menu-list__block"></div>
+            <div class="menu-list__links">
+              <ul class="list-links">
+                <li class="list-links__item">
+                  <a routerLink="/profile">My profile</a>
+                </li>
+                <li class="list-links__item">
+                  <a routerLink="/auto-add">Add my car</a>
+                </li>
+                <li class="list-links__item">
+                  <a routerLink="/auto-list">Search</a>
+                </li>
+              </ul>
+              <button
+                (click)="logOut()"
+                class="menu-list__button"
+                color="primary"
+                mat-raised-button
+              >
+                Log out
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</header>

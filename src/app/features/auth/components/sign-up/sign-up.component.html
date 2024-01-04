@@ -1,0 +1,84 @@
+<div class="auth">
+  <p class="auth__title text--bold">Create account</p>
+  <ng-content select="[socialNetwork]"></ng-content>
+  <p class="auth__type-switcher type-switcher">
+    <span class="type-switcher__text">OR</span>
+  </p>
+  <form
+    [formGroup]="signUpForm"
+    (ngSubmit)="onSubmit()"
+    class="auth__form data-form mat-form"
+  >
+    <div>
+      <div>
+        <label class="form__label" for="email"> Email </label>
+      </div>
+      <div class="form__field">
+        <mat-form-field appearance="outline" id="email">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            placeholder="example@gmail.com"
+            email
+            required
+            matInput
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="form__label" for="phone"> Phone </label>
+      </div>
+      <div class="flex flex--gap-1rem form__field">
+        <mat-form-field appearance="outline" id="phone">
+          <mat-label>Phone</mat-label>
+          <input
+            [showMaskTyped]="true"
+            formControlName="phone"
+            mask="00 0000 000"
+            matInput
+            required
+            prefix="+66"
+          />
+        </mat-form-field>
+        <!-- <button class="button--inline-input"
+                        color="primary"
+                        mat-raised-button>
+                    Send code
+                </button> -->
+      </div>
+    </div>
+    <!-- <div>
+      <div>
+        <label class="form__label" for="email"> SMS code </label>
+      </div>
+
+      <div class="form__field">
+        <mat-form-field appearance="outline">
+          <mat-label>SMS code</mat-label>
+          <input
+            [showMaskTyped]="true"
+            formControlName="email"
+            mask="0 0 0 0"
+            matInput
+          />
+        </mat-form-field>
+      </div>
+    </div> -->
+    <div>
+      <button
+        type="submit"
+        class="data-form__btn button--full-width"
+        color="primary"
+        mat-raised-button
+      >
+        Create Account
+      </button>
+    </div>
+  </form>
+  <div class="auth__login-switcher flex flex--align-center">
+    <p>Already have an account?</p>
+    <button (click)="openLogInForm()" color="primary" mat-button>Log in</button>
+  </div>
+</div>

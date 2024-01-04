@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card__content">
+        <div class="card__info">
+            <div>
+                <p class="card__label">Top 1</p>
+            </div>
+            <button class="card__favourite"
+                    mat-mini-fab>
+                <mat-icon>favorite_border</mat-icon>
+            </button>
+        </div>
+        <div class="card__carousel">
+            <div #sliderRef
+                 class="keen-slider card__slider slider">
+                <div class="keen-slider__slide">
+                    <img alt="auto"
+                         src="./assets/images/car2.jpeg"/>
+                </div>
+                <div class="keen-slider__slide">
+                    <img alt="auto"
+                         src="./assets/images/car3.png"/>
+                </div>
+
+                <div class="slider__actions actions">
+                    <button (click)="slider.prev()"
+                            class="actions__item actions__item--left"
+                            mat-mini-fab>
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </button>
+                    <button (click)="slider.next()"
+                            class="actions__item actions__item--right"
+                            mat-mini-fab>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-drawer-container [hasBackdrop]="false">
+        <mat-drawer #drawer
+                    class="card__details details"
+                    mode="over">
+            <div class="details__header flex flex--justify-between flex--align-center">
+                <p>Details</p>
+                <button (click)="drawer.toggle()"
+                        class="details__toggle"
+                        mat-icon-button>
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div class="card__text">
+                <a class="text--bold"
+                   routerLink="/auto-item">Toyota Camry</a>
+                <p>4.4 Steptronic (575 к.с.) xDrive</p>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="card__footer flex flex--justify-between flex--align-end">
+                <p class="card__price">
+                    {{2900 | currency:'USD':true:'4.0'}}
+                </p>
+                <button (click)="drawer.toggle()"
+                        mat-stroked-button>
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                    Details
+                </button>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

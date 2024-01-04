@@ -1,0 +1,683 @@
+<div class="add">
+  <h2 class="add__title">Add vehicle</h2>
+  <form
+    class="add__auto-form auto-form"
+    [formGroup]="addAutoForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <section class="auto-form__group">
+      <div class="auto-form__group-picker picker">
+        <div
+          *ngFor="let imageUrl of imageUrls; let i = index"
+          class="picker__picture"
+        >
+          <button (click)="deleteImage(i)">x</button>
+          <img [src]="imageUrl" [alt]="imageUrl" />
+        </div>
+        <label class="picker__add">
+          <img
+            class="picker__add-image"
+            src="../../../assets/icons/photo-add.svg"
+            alt="add-photo"
+          />
+          <p class="picker__add-text">Pick photo</p>
+          <input
+            type="file"
+            hidden
+            (change)="handleFileInput($event)"
+            multiple
+            accept="image/*"
+          />
+        </label>
+      </div>
+      <div class="auto-form__group-title">
+        <div class="auto-form__group-title--num">1</div>
+        <h3 class="auto-form__group-title--text">General information</h3>
+      </div>
+      <div class="auto-form__group-fields form-fields">
+        <div class="form-fields__block">
+          <label
+            for="vehicle_type"
+            [class.invalid]="
+              addAutoForm.get('type')?.invalid &&
+              (addAutoForm.get('type')?.dirty ||
+                addAutoForm.get('type')?.touched)
+            "
+            >Vehicle type<span class="required-field">*</span></label
+          >
+          <select
+            id="vehicle_type"
+            class="form-fields__block-field"
+            formControlName="type"
+          >
+            <option value="" hidden>Select</option>
+            <option *ngFor="let autoType of autoTypes" [value]="autoType.value">
+              {{ autoType.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="body_type"
+            [class.invalid]="
+              addAutoForm.get('body_type')?.invalid &&
+              (addAutoForm.get('body_type')?.dirty ||
+                addAutoForm.get('body_type')?.touched)
+            "
+            >Body type<span class="required-field">*</span></label
+          >
+          <input
+            id="body_type"
+            name="body_type"
+            class="form-fields__block-field"
+            formControlName="body_type"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="brand"
+            [class.invalid]="
+              addAutoForm.get('brand')?.invalid &&
+              (addAutoForm.get('brand')?.dirty ||
+                addAutoForm.get('brand')?.touched)
+            "
+            >Make<span class="required-field">*</span></label
+          >
+          <input
+            id="brand"
+            name="brand"
+            class="form-fields__block-field"
+            formControlName="brand"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="model"
+            [class.invalid]="
+              addAutoForm.get('model')?.invalid &&
+              (addAutoForm.get('model')?.dirty ||
+                addAutoForm.get('model')?.touched)
+            "
+            >Model<span class="required-field">*</span></label
+          >
+          <input
+            id="model"
+            name="model"
+            class="form-fields__block-field"
+            formControlName="model"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="vin">VIN</label>
+          <input id="vin" name="vin" class="form-fields__block-field" />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="year"
+            [class.invalid]="
+              addAutoForm.get('year')?.invalid &&
+              (addAutoForm.get('year')?.dirty ||
+                addAutoForm.get('year')?.touched)
+            "
+            >Year of issue<span class="required-field">*</span></label
+          >
+          <select
+            id="year"
+            class="form-fields__block-field"
+            formControlName="year"
+          >
+            <option value="" hidden>Year</option>
+            <option *ngFor="let year of years" [value]="year">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="mileage"
+            >Mileage<span class="required-field">*</span></label
+          >
+          <input
+            id="mileage"
+            name="mileage"
+            class="form-fields__block-field"
+            maxlength="3"
+            (input)="threeNumsValidation($event)"
+            placeholder="thousand km"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="transmission"
+            [class.invalid]="
+              addAutoForm.get('transmission')?.invalid &&
+              (addAutoForm.get('transmission')?.dirty ||
+                addAutoForm.get('transmission')?.touched)
+            "
+            >Transmission<span class="required-field">*</span></label
+          >
+          <select
+            id="transmission"
+            class="form-fields__block-field"
+            formControlName="transmission"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Manual</option>
+            <option value="2">Automatic</option>
+            <option value="3">Robot</option>
+            <option value="4">Tiptronic</option>
+            <option value="5">Variator</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="drive"
+            [class.invalid]="
+              addAutoForm.get('drive')?.invalid &&
+              (addAutoForm.get('drive')?.dirty ||
+                addAutoForm.get('drive')?.touched)
+            "
+            >Drive<span class="required-field">*</span></label
+          >
+          <select
+            id="drive"
+            class="form-fields__block-field"
+            formControlName="drive"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">All wheel drive</option>
+            <option value="2">Front wheel drive</option>
+            <option value="3">Rear wheel drive</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="region"
+            >Region<span class="required-field">*</span></label
+          >
+          <input id="region" name="region" class="form-fields__block-field" />
+        </div>
+        <div class="form-fields__block">
+          <label for="district"
+            >District<span class="required-field">*</span></label
+          >
+          <input
+            id="district"
+            name="district"
+            class="form-fields__block-field"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="city">City<span class="required-field">*</span></label>
+          <input id="city" name="city" class="form-fields__block-field" />
+        </div>
+      </div>
+    </section>
+    <section class="auto-form__group">
+      <div class="auto-form__group-title">
+        <div class="auto-form__group-title--num">2</div>
+        <h3 class="auto-form__group-title--text">Specifications</h3>
+      </div>
+      <div class="auto-form__group-fields form-fields">
+        <div class="form-fields__block">
+          <label
+            for="exterior_color"
+            [class.invalid]="
+              addAutoForm.get('exterior_color')?.invalid &&
+              (addAutoForm.get('exterior_color')?.dirty ||
+                addAutoForm.get('exterior_color')?.touched)
+            "
+            >Exterior Color<span class="required-field">*</span></label
+          >
+          <select
+            id="exterior_color"
+            class="form-fields__block-field"
+            formControlName="color_exterior"
+          >
+            <option value="" hidden>Select</option>
+            <option *ngFor="let color of allVehicleColors" [value]="color">
+              {{ color }}
+            </option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="interior_color">Interior Color</label>
+          <select
+            id="interior_color"
+            class="form-fields__block-field"
+            formControlName="color_interior"
+          >
+            <option value="" hidden>Select</option>
+            <option *ngFor="let color of allVehicleColors" [value]="color">
+              {{ color }}
+            </option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="engine_capacity"
+            [class.invalid]="
+              addAutoForm.get('engine')?.invalid &&
+              (addAutoForm.get('engine')?.dirty ||
+                addAutoForm.get('engine')?.touched)
+            "
+            >Engine capacity(cm³)<span class="required-field">*</span></label
+          >
+          <input
+            id="engine_capacity"
+            class="form-fields__block-field"
+            formControlName="engine"
+            maxlength="4"
+            (input)="engineCapacityValidator($event)"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="engine_power">Engine power(hp)</label>
+          <input
+            id="engine_power"
+            class="form-fields__block-field"
+            type="number"
+            formControlName="engine_output"
+            maxlength="3"
+            (input)="threeNumsValidation($event)"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="pasenger_seats"
+            [class.invalid]="
+              addAutoForm.get('passenger_seats')?.invalid &&
+              (addAutoForm.get('passenger_seats')?.dirty ||
+                addAutoForm.get('passenger_seats')?.touched)
+            "
+            >Seats<span class="required-field">*</span></label
+          >
+          <input
+            id="pasenger_seats"
+            class="form-fields__block-field"
+            formControlName="passenger_seats"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="doors">Doors</label>
+          <input
+            id="doors"
+            class="form-fields__block-field"
+            formControlName="doors"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="consumption_city">Fuel consumption(City)</label>
+          <input
+            id="consumption_city"
+            class="form-fields__block-field"
+            formControlName="fuel_city"
+            type="number"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="consumption_highway">Fuel consumption(Highway)</label>
+          <input
+            id="consumption_highway"
+            class="form-fields__block-field"
+            formControlName="fuel_motorway"
+            type="number"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="consumption_mixed">Fuel consumption(Mixed)</label>
+          <input
+            id="consumption_mixed"
+            class="form-fields__block-field"
+            formControlName="fuel_mixed"
+            type="number"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="technical_condition"
+            [class.invalid]="
+              addAutoForm.get('technical_condition')?.invalid &&
+              (addAutoForm.get('technical_condition')?.dirty ||
+                addAutoForm.get('technical_condition')?.touched)
+            "
+            >Technical condition<span class="required-field">*</span></label
+          >
+          <select
+            id="technical_condition"
+            class="form-fields__block-field"
+            formControlName="technical_condition"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Excellent (no scratches)</option>
+            <option value="2">Good (minor scratches)</option>
+            <option value="3">Usual (minor damages)</option>
+            <option value="4">Bad (serious damages)</option>
+            <option value="5">Critical (serious_damages, missing parts)</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="on_drive"
+            [class.invalid]="
+              addAutoForm.get('on_drive')?.invalid &&
+              (addAutoForm.get('on_drive')?.dirty ||
+                addAutoForm.get('on_drive')?.touched)
+            "
+            >Drive condition<span class="required-field">*</span></label
+          >
+          <select
+            id="on_drive"
+            class="form-fields__block-field"
+            formControlName="on_drive"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Run and Drive</option>
+            <option value="2">Engine Starts</option>
+            <option value="3">Engine doesn't start</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="fuel"
+            [class.invalid]="
+              addAutoForm.get('fuel')?.invalid &&
+              (addAutoForm.get('fuel')?.dirty ||
+                addAutoForm.get('fuel')?.touched)
+            "
+            >Fuel type<span class="required-field">*</span></label
+          >
+          <select
+            id="fuel"
+            class="form-fields__block-field"
+            formControlName="fuel"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Petrol</option>
+            <option value="2">Gas</option>
+            <option value="3">Methane gas / Petrol</option>
+            <option value="4">Hybrid (HEV)</option>
+            <option value="5">Hybrid (PHEV)</option>
+            <option value="6">Diesel</option>
+            <option value="7">Electro</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="capacity">Trunk capacity(Handbag)</label>
+          <select
+            id="capacity"
+            class="form-fields__block-field"
+            formControlName="trunk_capacity"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Big and 1 smal</option>
+            <option value="2">Small</option>
+            <option value="3">Big and more</option>
+          </select>
+        </div>
+      </div>
+    </section>
+    <section class="auto-form__group">
+      <div class="auto-form__group-title">
+        <div class="auto-form__group-title--num">3</div>
+        <h3 class="auto-form__group-title--text">Sale details</h3>
+      </div>
+      <div class="auto-form__group-fields form-fields">
+        <div class="form-fields__block">
+          <label
+            for="price"
+            [class.invalid]="
+              addAutoForm.get('price')?.invalid &&
+              (addAutoForm.get('price')?.dirty ||
+                addAutoForm.get('price')?.touched)
+            "
+            >Price<span class="required-field">*</span></label
+          >
+          <input
+            id="price"
+            class="form-fields__block-field"
+            formControlName="price"
+            type="number"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="price_period"
+            [class.invalid]="
+              addAutoForm.get('price_period')?.invalid &&
+              (addAutoForm.get('price_period')?.dirty ||
+                addAutoForm.get('price_period')?.touched)
+            "
+            >Price period<span class="required-field">*</span></label
+          >
+          <select
+            id="price_period"
+            class="form-fields__block-field"
+            formControlName="price_period"
+          >
+            <option value="{{ 0 }}" hidden>Select</option>
+            <option *ngFor="let period of pricePeriod" [value]="period.value">
+              {{ period.label }}
+            </option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="restrictions_region"
+            [class.invalid]="
+              addAutoForm.get('restrictions_region')?.invalid &&
+              (addAutoForm.get('restrictions_region')?.dirty ||
+                addAutoForm.get('restrictions_region')?.touched)
+            "
+            >Restrictions region<span class="required-field">*</span></label
+          >
+          <select
+            id="restrictions_region"
+            class="form-fields__block-field"
+            formControlName="restrictions_region"
+          >
+            <option value="" hidden>Region</option>
+            <option value="1">Phuket only</option>
+            <option value="2">Phuket and Phang-Nga</option>
+            <option value="3">Phuket, Pang-Nga, Krab</option>
+            <option value="4">Thailand</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="restrictions_mileage"
+            >Restrictions mileage<span class="required-field">*</span></label
+          >
+          <input
+            id="restrictions_mileage"
+            type="number"
+            class="form-fields__block-field"
+            formControlName="restrictions_mileage"
+            placeholder="max km"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="documents"
+            [class.invalid]="
+              addAutoForm.get('car_documents')?.invalid &&
+              (addAutoForm.get('car_documents')?.dirty ||
+                addAutoForm.get('car_documents')?.touched)
+            "
+            >Documents<span class="required-field">*</span></label
+          >
+          <select
+            id="documents"
+            class="form-fields__block-field"
+            formControlName="car_documents"
+          >
+            <option value="" hidden>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="insurance_availability"
+            [class.invalid]="
+              addAutoForm.get('insurance_availability')?.invalid &&
+              (addAutoForm.get('insurance_availability')?.dirty ||
+                addAutoForm.get('insurance_availability')?.touched)
+            "
+            >Insurance availability<span class="required-field">*</span></label
+          >
+          <select
+            id="insurance_availability"
+            formControlName="insurance_availability"
+            class="form-fields__block-field"
+            formControlName="insurance_availability"
+          >
+            <option value="" hidden>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div
+          class="form-fields__block"
+          *ngIf="this.addAutoForm.value.insurance_availability === '1'"
+        >
+          <label for="insurance_type">Insurance type</label>
+          <select
+            id="insurance_type"
+            class="form-fields__block-field"
+            formControlName="insurance_type"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">First class</option>
+            <option value="2">Second class</option>
+            <option value="3">Third class</option>
+            <option value="4">Comprehensive only</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="children_chair">Children chair</label>
+          <select
+            id="children_chair"
+            class="form-fields__block-field"
+            formControlName="children_chair"
+          >
+            <option value="" hidden>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label for="phone_holder">Phone holder</label>
+          <select
+            id="phone_holder"
+            class="form-fields__block-field"
+            formControlName="phone_holder"
+          >
+            <option value="" hidden>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="payments_allowed"
+            [class.invalid]="
+              addAutoForm.get('payments_allowed')?.invalid &&
+              (addAutoForm.get('payments_allowed')?.dirty ||
+                addAutoForm.get('payments_allowed')?.touched)
+            "
+            >Payments allowed<span class="required-field">*</span></label
+          >
+          <select
+            id="payments_allowed"
+            class="form-fields__block-field"
+            (change)="handlePaymentAllowed($event)"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Tai Bank</option>
+            <option value="2">Credit card</option>
+            <option value="3">Cash</option>
+            <option value="4">Crypto</option>
+          </select>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="deposit"
+            [class.invalid]="
+              addAutoForm.get('deposit')?.invalid &&
+              (addAutoForm.get('deposit')?.dirty ||
+                addAutoForm.get('deposit')?.touched)
+            "
+            >Deposit<span class="required-field">*</span></label
+          >
+          <input
+            id="deposit"
+            class="form-fields__block-field"
+            formControlName="deposit"
+            type="number"
+          />
+        </div>
+        <div class="form-fields__block">
+          <label for="deposit_comment">Deposit comment</label>
+          <textarea
+            id="deposit_comment"
+            class="form-fields__block-field"
+          ></textarea>
+        </div>
+        <div class="form-fields__block">
+          <label
+            for="reimbursement"
+            [class.invalid]="
+              addAutoForm.get('reimbursement')?.invalid &&
+              (addAutoForm.get('reimbursement')?.dirty ||
+                addAutoForm.get('reimbursement')?.touched)
+            "
+            >Reimbursement<span class="required-field">*</span></label
+          >
+          <select
+            id="reimbursement"
+            formControlName="reimbursement"
+            placeholder="Select"
+            class="form-fields__block-field"
+            formControlName="reimbursement"
+          >
+            <option value="" hidden>Select</option>
+            <option value="1">Full</option>
+            <option value="2">Franchise</option>
+            <option value="3">Insurance</option>
+            <option value="4">No payouts</option>
+          </select>
+        </div>
+        <div
+          class="form-fields__block"
+          *ngIf="this.addAutoForm.value.reimbursement === '2'"
+        >
+          <label for="franchise_amount">Franchise amount</label>
+          <input
+            id="franchise_amount"
+            class="form-fields__block-field"
+            formControlName="franchise_amount"
+            type="number"
+          />
+        </div>
+        <div
+          class="form-fields__block"
+          *ngIf="this.addAutoForm.value.reimbursement === '3'"
+        >
+          <label for="insurance_amount">Insurance amount</label>
+          <input
+            id="insurance_amount"
+            class="form-fields__block-field"
+            formControlName="insurance_amount"
+            type="number"
+          />
+        </div>
+      </div>
+    </section>
+    <button
+      class="auto-form__submition"
+      type="submit"
+      color="primary"
+      mat-raised-button
+    >
+      Submit
+    </button>
+  </form>
+</div>

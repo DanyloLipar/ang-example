@@ -1,0 +1,83 @@
+@import "../../../../../assets/styles/variables";
+
+:host {
+  background: $blue-4;
+  display: flex;
+  max-width: 78vw;
+  min-height: 400px;
+  height: 100%;
+  position: relative;
+
+  ::ng-deep {
+    .mat-mdc-dialog-container {
+      width: max-content;
+    }
+  }
+}
+
+.auth {
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+    cursor: pointer;
+
+    @media screen and (max-width: 800px) {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+
+  &__content {
+    background: $white;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    flex: 1;
+    padding: 3rem 5rem 4rem;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.left-container {
+  position: relative;
+  flex-basis: 35%;
+  padding: 2rem;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 3rem;
+    right: -2rem;
+  }
+}
+
+.text {
+  &__title {
+    font-size: 2rem;
+    color: $white;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $white;
+  }
+}
+
+.content {
+  &__block {
+    height: max-content;
+
+    @media screen and (max-width: 800px) {
+      padding: 2rem 1rem;
+      background: $white;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="teaser">
+    <div class="teaser__img">
+        <img alt="auto"
+             src="./assets/images/car3.png"/>
+    </div>
+    <div class="teaser__content content">
+        <div class="content__text">
+            <p class="text--bold">Toyota Camry</p>
+            <p>4.4 Steptronic (575 к.с.) xDrive</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="teaser__footer flex flex--justify-between">
+            <button (click)="openAuto()"
+                    color="primary"
+                    mat-stroked-button>
+                View details
+            </button>
+            <p class="teaser__price">
+                {{2900 | currency:'USD':true:'4.0'}}
+            </p>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,11 @@
+<div #sliderRef class="keen-slider">
+    <div
+            *ngFor="let image of images" class="keen-slider__slide number-slide1">
+        <img [src]="image" alt="Car Image" class="auto-content__image"/>
+    </div>
+</div>
+<div #thumbnailRef class="keen-slider thumbnail">
+    <div *ngFor="let image of images" class="keen-slider__slide number-slide1">
+        <img [src]="image" alt="Car Image" class="auto-content__image"/>
+    </div>
+</div>

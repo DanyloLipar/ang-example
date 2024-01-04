@@ -1,0 +1,27 @@
+<form
+  (ngSubmit)="rentCalculatorForm.searchAuto()"
+  [formGroup]="rentCalculatorForm"
+  class="calculator-form flex flex--justify-center flex--gap-1rem"
+>
+  <mat-form-field appearance="outline" class="flex--1">
+    <mat-label>Location</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input formControlName="location" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Type</mat-label>
+    <input formControlName="type" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Brand</mat-label>
+    <input formArrayName="brand" matInput />
+  </mat-form-field>
+  <button
+    color="primary"
+    class="button--inline-input"
+    mat-raised-button
+    type="submit"
+  >
+    Pick up
+  </button>
+</form>

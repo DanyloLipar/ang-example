@@ -1,0 +1,104 @@
+$white: #ffffff;
+$white-1: #fcfcfc;
+$white-2: #f8fafc;
+
+$white-c4-opacity: #ffffffc4;
+
+$grey-1: #e4e4e4;
+$grey-2: #d4d5dd;
+$grey-3: #cacddf;
+$grey-4: #c0c7d3;
+
+$pink-1: #ececec;
+$pink-2: #db2777;
+
+$blue-1: #98c5ed;
+$blue-2: #8585ac;
+$blue-3: #7596d2;
+$blue-4: #538dc2;
+$blue-5: #5172ae;
+$blue-6: #3b82f6;
+$blue-7: #4051b5;
+$blue-8: #0d0b49;
+$blue-9: rgba(117, 150, 210, 0.2);
+
+$green-1: #2dd4bf;
+$green-2: #186c58;
+
+$black: #000000;
+$red: red;
+
+$box-shadow-1: rgba(17, 17, 26, 0.05) 0 4px 16px,
+  rgba(17, 17, 26, 0.05) 0 8px 32px;
+$box-shadow-2: rgb(52 88 121) 3px 3px 6px 0px inset,
+  rgb(95 37 37 / 50%) -3px -3px 6px 1px inset;
+$box-shadow-3: 0 4px 3px 0 rgba(34, 90, 182, 0.12),
+  0 0 1px 0 rgba(41, 92, 176, 0.25);
+
+$filter-1: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.1))
+  drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.1));
+
+$radial-gradient-1: radial-gradient(
+    138.48% 134.3% at 60.01% 112.56%,
+    rgb(150 130 130 / 70%) 0%,
+    rgba(89, 89, 89, 0) 100%
+  ),
+  radial-gradient(
+    142.79% 142.79% at 133.89% 60.37%,
+    rgb(255, 156, 211) 0%,
+    rgba(59, 89, 202, 0.13) 100%
+  ),
+  radial-gradient(
+    141.51% 141.51% at 4.16% 5.34%,
+    rgba(31, 255, 254, 0.7) 0%,
+    rgba(100, 100, 100, 0) 100%
+  ),
+  #7653ff;
+$radial-gradient-2: radial-gradient(
+    138.48% 134.3% at 60.01% 112.56%,
+    rgba(11, 11, 11, 0.7) 0%,
+    rgba(89, 89, 89, 0) 100%
+  ),
+  radial-gradient(
+    142.79% 142.79% at 133.89% 60.37%,
+    rgb(255 156 211) 0%,
+    rgba(59, 89, 202, 0.13) 100%
+  ),
+  radial-gradient(
+    141.51% 141.51% at 4.16% 5.34%,
+    rgb(31 255 254 / 70%) 0%,
+    rgba(100, 100, 100, 0) 100%
+  ),
+  #7653ff;
+$radial-gradient-3: radial-gradient(
+    138.48% 134.3% at 60.01% 112.56%,
+    rgb(238 238 238 / 70%) 0%,
+    rgba(89, 89, 89, 0) 100%
+  ),
+  radial-gradient(
+    142.79% 142.79% at 133.89% 60.37%,
+    rgb(255 114 192) 0%,
+    rgba(59, 89, 202, 0.13) 100%
+  ),
+  radial-gradient(
+    141.51% 141.51% at 4.16% 5.34%,
+    rgba(31, 255, 254, 0.7) 0%,
+    rgb(85 0 0 / 0%) 100%
+  ),
+  #8c6fff;
+$radial-gradient-4: radial-gradient(
+    138.48% 134.3% at 60.01% 112.56%,
+    rgba(150, 130, 130, 0.7) 0%,
+    rgb(73 73 73 / 0%) 100%
+  ),
+  radial-gradient(
+    142.79% 142.79% at 133.89% 60.37%,
+    rgb(255 238 247) 0%,
+    rgba(59, 89, 202, 0.13) 100%
+  ),
+  radial-gradient(
+    141.51% 141.51% at 4.16% 5.34%,
+    rgb(204 242 242 / 70%) 0%,
+    rgba(100, 100, 100, 0) 100%
+  ),
+  #613bf3;

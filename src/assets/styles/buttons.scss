@@ -1,0 +1,40 @@
+@import "variables";
+
+::ng-deep {
+  .mdc-fab--mini {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mat-mdc-mini-fab .mat-mdc-button-touch-target {
+    height: 0;
+  }
+}
+
+button.mdc-button .mdc-button__label {
+  font-size: 0.875rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+button.mdc-button.button {
+  &--inline-input {
+    height: auto;
+    margin-bottom: 22px;
+    min-height: 40px;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.mat-mdc-button.mat-mdc-button-base,
+.mat-mdc-raised-button.mat-mdc-button-base,
+.mat-mdc-unelevated-button.mat-mdc-button-base,
+.mat-mdc-outlined-button.mat-mdc-button-base {
+  height: 40px;
+}

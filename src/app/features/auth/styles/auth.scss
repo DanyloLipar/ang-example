@@ -1,0 +1,58 @@
+@import "../../../../assets/styles/variables";
+
+:host {
+  mat-form-field {
+    width: 100%;
+  }
+
+  ::ng-deep .mdc-button__label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    white-space: nowrap;
+  }
+}
+
+
+.auth {
+  height: 100%;
+
+  &__title {
+    padding-bottom: 2rem;
+  }
+
+  &__login-switcher {
+    margin-top: 1.25rem;
+  }
+}
+
+.data-form {
+  &__btn {
+    margin-top: 2rem;
+    height: 40px;
+  }
+}
+
+.type-switcher {
+  width: 100%;
+  text-align: center;
+  border-bottom: 0.2px solid $grey-1;
+  line-height: 0;
+  margin-bottom: 1.25rem;
+
+  &__text {
+    background: white;
+    text-align: center;
+    padding:0 0.625rem;
+    color: $blue-8;
+    font-size: 0.8125rem;
+  }
+}
+
+
+
+.actions {
+  &__page-switcher {
+    margin-top: 1.25rem;
+  }
+}

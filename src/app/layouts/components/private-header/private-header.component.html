@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="header__container flex flex--align-center flex--justify-between">
+    <a routerLink="/" class="header__logo">Logo</a>
+    <div class="header__account flex flex--align-center flex--gap-1rem">
+      <p>EN</p>
+      <div class="private-menu">
+        <mat-icon class="private-menu__icon" style="color: #7596d2"
+          >notifications_none</mat-icon
+        >
+        <div class="flex flex--align-center flex--gap-05rem account-menu">
+          <button
+            (click)="addCar()"
+            class="menu-list__button"
+            color="primary"
+            mat-raised-button
+          >
+            Add auto
+          </button>
+          <button
+            (click)="logOut()"
+            class="menu-list__button"
+            color="warn"
+            mat-raised-button
+          >
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

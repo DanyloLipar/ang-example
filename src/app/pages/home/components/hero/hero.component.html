@@ -1,0 +1,31 @@
+<div class="hero">
+    <div class="hero__header header flex flex--column flex--gap-2rem">
+        <h1 class="header__title">Find Your Perfect Rental Auto</h1>
+        <app-calculator class="header__calculator"></app-calculator>
+    </div>
+    <div class="hero__rectangles">
+        <div class="rectangle-1"></div>
+        <div class="rectangle-3"></div>
+        <div class="rectangle-2"></div>
+        <div class="rectangle-12 shadow"></div>
+        <div class="rectangle-13 shadow"></div>
+        <div class="rectangle-14 shadow"></div>
+        <div class="rectangle-15 shadow"></div>
+        <div class="rectangle-16 shadow"></div>
+        <div class="rectangle-17 shadow"></div>
+        <div class="rectangle-18 shadow"></div>
+        <div class="rectangle-19 shadow"></div>
+        <div class="rectangle-110 shadow"></div>
+        <div class="rectangle-22 shadow"></div>
+    </div>
+
+    <div (scroll)="scrollHandler()" class="hero__img image">
+        <img class="image__car"
+             data-speed="2"
+             data-type="parallax"
+             alt="Car Image"
+             src="./assets/images/car6.png"
+             width="800"
+        />
+    </div>
+</div>

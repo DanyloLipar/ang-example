@@ -1,0 +1,110 @@
+<div class="auto-form">
+  <form [formGroup]="filterForm" class="mat-form">
+    <div class="auto-form__field">
+      <p class="auto-form__label">Type</p>
+      <mat-chip-listbox
+        (change)="changeFormValue()"
+        aria-label="Type selection"
+        formControlName="type"
+      >
+        <mat-chip-option value="car">Car</mat-chip-option>
+        <mat-chip-option value="bice">Bike</mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+    <mat-divider></mat-divider>
+    <app-expansion-panel>
+      <p header>Body type</p>
+      <div body>
+        <app-checkbox-group
+          [filterForm]="filterForm"
+          [checkboxList]="bodyTypes"
+          [formArrayValue]="filterForm.controls.bodyType"
+        ></app-checkbox-group>
+      </div>
+
+      <!--            <mat-checkbox-->
+      <!--                    (change)="changeFormValue()"-->
+      <!--                    *ngFor="let type of bodyTypes"-->
+      <!--                    body-->
+      <!--                    color="primary"-->
+      <!--                    formControlName="bodyType">-->
+      <!--                {{ type }}-->
+      <!--            </mat-checkbox>-->
+    </app-expansion-panel>
+    <mat-divider></mat-divider>
+
+    <div class="auto-form__field">
+      <p class="auto-form__label">Make</p>
+      <div class="flex flex--column">
+        <mat-form-field appearance="outline">
+          <mat-label>Make</mat-label>
+          <input (blur)="changeFormValue()" formControlName="region" matInput />
+        </mat-form-field>
+      </div>
+      <p class="auto-form__label">Model</p>
+      <div class="flex flex--column">
+        <mat-form-field appearance="outline">
+          <mat-label>Model</mat-label>
+          <input (blur)="changeFormValue()" formControlName="region" matInput />
+        </mat-form-field>
+      </div>
+      <p class="auto-form__label">Year</p>
+      <div class="flex flex--row flex--gap-1rem">
+        <mat-form-field appearance="outline">
+          <mat-label>From</mat-label>
+          <mat-select>
+            <mat-option
+              (change)="changeFormValue()"
+              *ngFor="let year of years"
+              [value]="year"
+            >
+              {{ year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>To</mat-label>
+          <mat-select>
+            <mat-option
+              (change)="changeFormValue()"
+              *ngFor="let year of years"
+              [value]="year"
+            >
+              {{ year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <!--        <div class="auto-form__field">-->
+    <!--            <label class="auto-form__label">Year</label>-->
+    <!--            <app-datepicker></app-datepicker>-->
+    <!--            <app-datepicker></app-datepicker>-->
+    <!--        </div>-->
+    <!--        <mat-divider></mat-divider>-->
+    <div class="auto-form__field">
+      <p class="auto-form__label">Region</p>
+      <app-autocomplete
+        [control]="filterForm.controls.region"
+        [options]="[{ id: 'ffff', value: 'ggg' }]"
+      ></app-autocomplete>
+    </div>
+
+    <div>
+      <!--            <div>-->
+      <!--                <mat-form-field appearance="outline">-->
+      <!--                    <mat-label>Body Type</mat-label>-->
+      <!--                    <input formControlName="bodyType" matInput placeholder="Body Type">-->
+      <!--                </mat-form-field>-->
+
+      <!--            </div>-->
+
+      <!--            <mat-slider-->
+      <!--                    max="500" min="200">-->
+      <!--                <input matSliderStartThumb value="300">-->
+      <!--                <input matSliderEndThumb value="400">-->
+      <!--            </mat-slider>-->
+    </div>
+  </form>
+</div>

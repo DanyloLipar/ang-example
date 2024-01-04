@@ -1,0 +1,69 @@
+@import "../../../../../assets/styles/variables";
+
+.register-offer {
+  height: 240px;
+  padding: 4px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  filter: $filter-1;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 1200px) {
+    height: 460px
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $radial-gradient-1;
+    transform-origin: center;
+  }
+
+  &__close {
+    position: absolute;
+    z-index: 2;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+
+    @media screen and (max-width: 1200px) {
+      bottom: 6rem;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: $white;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
+
+.content {
+  &__block {
+    padding: 2rem;
+  }
+}
+
+.block {
+  height: 100%;
+
+  &__buttons button {
+    padding: 0 2rem;
+  }
+}

@@ -1,0 +1,105 @@
+@import "../../../assets/styles/variables.scss";
+
+.office {
+  padding: 100px 7vw 0;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.info-panel {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 10px;
+
+  &__content {
+    width: 25%;
+  }
+
+  &__outlet {
+    margin-top: 80px;
+  }
+}
+
+.person {
+  display: flex;
+  background-color: $blue-9;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 40px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 10px;
+
+    &-box {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      &--name {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      &--edit {
+        width: 20px;
+        height: 20px;
+
+        & > img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__photo {
+    width: 45px;
+    height: 45px;
+
+    &-img {
+      width: 100%;
+    }
+  }
+}
+
+.chapters {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style-type: none;
+  margin-top: 30px;
+  width: 100%;
+
+  &__link {
+    width: 100%;
+    &-item {
+      color: $black;
+      text-decoration: none;
+      display: block;
+      padding: 8px;
+      width: 100%;
+      border-radius: 4px;
+      box-sizing: border-box;
+
+      &:hover {
+        background-color: $blue-9;
+      }
+    }
+  }
+}
+
+.active-link {
+  background-color: $blue-5;
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $blue-5;
+    color: $white;
+    text-decoration: none;
+  }
+}

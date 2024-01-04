@@ -1,0 +1,13 @@
+<div class="general-questions">
+    <h2 class="general-questions__header">General questions</h2>
+    <ng-container *ngFor="let question of generalQuestions">
+        <mat-expansion-panel class="mat-elevation-z">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{question.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>{{question.description}}</p>
+        </mat-expansion-panel>
+    </ng-container>
+</div>

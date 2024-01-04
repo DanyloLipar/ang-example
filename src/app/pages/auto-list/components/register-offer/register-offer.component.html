@@ -1,0 +1,28 @@
+<div *ngIf="!isAuthenticated" class="register-offer">
+  <img
+    alt="Rental Car Image"
+    class="register-offer__img"
+    src="./assets/images/rental-car.png"
+    width="320"
+  />
+  <div class="register-offer__content content flex flex--column">
+    <div class="content__block block flex flex--column flex--justify-between">
+      <div class="block__text flex flex--column flex--gap-1rem">
+        <h3 class="text">Do not have an account?</h3>
+        <div class="content">
+          <p>
+            If you don't have an account yet, click on "Sign Up" to create one.
+          </p>
+        </div>
+      </div>
+      <div class="block__buttons flex flex--gap-1rem">
+        <button (click)="signUp()" color="primary" mat-raised-button>
+          Sign Up
+        </button>
+        <button (click)="removeRegistrationOffer()" mat-stroked-button>
+          Later
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

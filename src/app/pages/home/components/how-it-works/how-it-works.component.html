@@ -1,0 +1,15 @@
+<div class="how-it-works__header">
+    <h2 class="how-it-works__title">How it works</h2>
+    <h4 class="how-it-works__subtitle">Guide the objective in three simple steps.</h4>
+</div>
+
+<div class="how-it-works__content">
+    <div *ngFor="let explanation of howItWorksExplanation"
+         class="how-it-works__item">
+        <div class="how-it-works__item-bg"></div>
+        <div class="how-it-works__item-content">
+            <p class="how-it-works__step">{{explanation.step}}</p>
+            <p class="how-it-works__description">{{explanation.description}}</p>
+        </div>
+    </div>
+</div>

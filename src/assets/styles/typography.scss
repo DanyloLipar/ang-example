@@ -1,0 +1,86 @@
+@import "variables";
+$base-font-size: 1rem;
+$base-line-height: 1.5;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$font-style-italic: italic;
+$font-style-normal: normal;
+
+@mixin heading($font-size, $font-weight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $base-line-height;
+}
+
+@mixin body-text($font-size, $font-weight, $font-style) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $base-line-height;
+  font-style: $font-style;
+}
+
+.heading1 {
+  @include heading(2.5em, $font-weight-bold);
+}
+
+.heading2 {
+  @include heading(2em, $font-weight-bold);
+}
+
+.heading3 {
+  @include heading(1.5em, $font-weight-bold);
+}
+
+.heading4 {
+  @include heading(1em, $font-weight-medium);
+}
+
+.body-text {
+  @include body-text($base-font-size, $font-weight-regular, $font-style-normal);
+}
+
+.italic-text {
+  @include body-text($base-font-size, $font-weight-regular, $font-style-italic);
+}
+
+h1 {
+  margin: 0;
+  color: #0D0B49;
+  @extend .heading1;
+}
+
+h2 {
+  margin: 0;
+  color: #0D0B49;
+  @extend .heading2;
+}
+
+h3 {
+  margin: 0;
+  color: #0D0B49;
+  @extend .heading3;
+}
+
+h4 {
+  margin: 0;
+  @extend .heading4;
+}
+p {
+  @extend .body-text;
+}
+
+em {
+  @extend .italic-text;
+}
+
+
+.text {
+  &--bold {
+    font-weight: $font-weight-bold;
+  }
+}
+

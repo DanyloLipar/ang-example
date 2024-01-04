@@ -1,0 +1,64 @@
+@import "../../../assets/styles/variables";
+
+:host {
+  display: block;
+  padding-bottom: 3.75rem;
+}
+
+section:not(.hero) {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 1200px) {
+    max-width: 100%;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+section {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+.hero {
+  background: linear-gradient(0deg, #fcfcfc 0%, #7596D2 100%);
+
+  &__img {
+    padding: 6.25rem 0 5.625rem;
+    display: block;
+    margin:0 auto;
+  }
+}
+
+.calculator {
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  position: relative;
+  background: $white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.teaser-carousel {
+  margin-top: 9.6875rem;
+}
+
+.how-it-works {
+  margin-top: 3.75rem;
+}
+
+.general-questions {
+  margin:  6.25rem 0 1.25rem;
+}

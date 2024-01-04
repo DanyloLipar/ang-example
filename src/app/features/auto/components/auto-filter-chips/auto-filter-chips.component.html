@@ -1,0 +1,9 @@
+<div class="filter-chips chips flex flex--gap-05rem flex--wrap">
+    <mat-chip (removed)="removeFilterChip(chip)"
+              *ngFor="let chip of filterChips"
+              [removable]="true"
+              class="chips__item">
+        {{ chip.value }}
+        <mat-icon matChipRemove>close</mat-icon>
+    </mat-chip>
+</div>

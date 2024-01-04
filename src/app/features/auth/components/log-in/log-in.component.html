@@ -1,0 +1,63 @@
+<div class="auth">
+  <div>
+    <p class="auth__title text--bold">Log in to your account</p>
+    <ng-content select="[socialNetwork]"></ng-content>
+    <p class="auth__type-switcher type-switcher">
+      <span class="type-switcher__text">OR</span>
+    </p>
+  </div>
+  <div>
+    <form
+      [formGroup]="logInForm"
+      (ngSubmit)="onSubmit()"
+      class="auth__form data-form mat-form"
+    >
+      <div>
+        <div>
+          <label for="email" class="form__label"> Email </label>
+        </div>
+        <div class="form__field">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input id="email" formControlName="email_phone" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="password" class="form__label"> Password </label>
+        </div>
+        <div class="form__field">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              id="password"
+              type="password"
+              formControlName="password"
+              matInput
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="auth__actions actions">
+        <button
+          class="actions__form-btn button--full-width"
+          type="submit"
+          color="primary"
+          mat-raised-button
+        >
+          Log in
+        </button>
+        <button
+          class="actions__page-switcher"
+          type="button"
+          (click)="openForgotPasswordForm()"
+          color="primary"
+          mat-button
+        >
+          Forgot password
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

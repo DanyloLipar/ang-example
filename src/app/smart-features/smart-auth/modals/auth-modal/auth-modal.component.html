@@ -1,0 +1,45 @@
+<button (click)="closeDialog()" class="auth__close" mat-icon-button>
+  <mat-icon>close</mat-icon>
+</button>
+<div class="auth__left-container left-container">
+  <div class="left-container__text text">
+    <p class="text__title text--bold">Auto Thai</p>
+    <p class="text__subtitle">Find what you need</p>
+  </div>
+
+  <img
+    alt="Register Car Image"
+    class="left-container__image"
+    src="../../../../../assets/images/register-car.png"
+    width="500"
+  />
+</div>
+
+<div class="auth__content content">
+  <div class="content__block">
+    <ng-container [ngSwitch]="currentForm">
+      <app-log-in
+        (changeForm)="changeForm($event)"
+        *ngSwitchCase="'login'"
+        [@fadeInOut]
+      >
+        <app-social-network [title]="'Login'" socialNetwork>
+        </app-social-network>
+      </app-log-in>
+      <app-sign-up
+        (changeForm)="changeForm($event)"
+        *ngSwitchCase="'signup'"
+        [@fadeInOut]
+      >
+        <app-social-network [title]="'Sign Up'" socialNetwork>
+        </app-social-network>
+      </app-sign-up>
+      <app-forgot-password
+        (changeForm)="changeForm($event)"
+        *ngSwitchCase="'forgot'"
+        [@fadeInOut]
+      >
+      </app-forgot-password>
+    </ng-container>
+  </div>
+</div>

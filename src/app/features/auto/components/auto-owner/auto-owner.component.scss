@@ -1,0 +1,26 @@
+@import "../../../../../assets/styles/variables";
+
+.owner-info {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: $box-shadow-1;
+  padding: 16px;
+  border-radius: 6px;
+
+  &__avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 45px;
+    overflow: hidden;
+  }
+}
+
+.avatar__icon {
+  width: 75px;
+  height: 75px;
+  font-size: 54px;
+  color: $blue-3;
+}
+
+.name__text {
+    font-size: 18px;
+}

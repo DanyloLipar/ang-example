@@ -1,0 +1,17 @@
+export const vehicleColor = [
+  "black",
+  "white",
+  "red",
+  "blue",
+  "grey",
+  "green",
+  "yellow",
+  "pink",
+  "purple",
+  "dark red",
+  "beige",
+  "silver",
+  "gold",
+  "orange",
+  "other",
+];

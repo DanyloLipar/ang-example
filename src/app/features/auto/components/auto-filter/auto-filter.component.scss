@@ -1,0 +1,31 @@
+@import "../../../../../assets/styles/variables";
+
+.auto-form {
+  background: $white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: $box-shadow-1;
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0.5rem 0 0.5rem;
+    display: block;
+  }
+
+  &__field {
+    padding: 0 1.5rem;
+  }
+}
+
+::ng-deep {
+  .mdc-checkbox .mdc-checkbox__background {
+    border-radius: 5px;
+  }
+
+  .mat-mdc-checkbox.mat-primary {
+    height: 30px;
+  }
+}
+
+

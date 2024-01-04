@@ -1,0 +1,37 @@
+export interface AutoAdd {
+  price: string;
+  price_period: number;
+  restrictions_mileage: number;
+  restrictions_region: string;
+  trunk_capacity: string;
+  children_chair: string;
+  phone_holder: string;
+  payments_allowed: string[];
+  deposit: string;
+  reimbursement: string;
+  franchise_amount?: number;
+  insurance_amount?: string;
+  insurance_availability: string;
+  insurance_type?: string;
+  type: string;
+  body_type: string;
+  images: File[];
+  brand: string;
+  model: string;
+  year: string;
+  transmission: string;
+  fuel: string;
+  drive: string;
+  engine: string;
+  engine_output: string;
+  technical_condition: string;
+  on_drive: string;
+  fuel_city: string;
+  fuel_motorway: string;
+  fuel_mixed: string;
+  passenger_seats: string;
+  doors: string;
+  color_exterior: string;
+  color_interior: string;
+  car_documents: string;
+}

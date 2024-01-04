@@ -1,0 +1,52 @@
+@import "../../../../assets/styles/variables";
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: $white;
+  border-bottom: 1px solid $blue-3;
+  z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  &__container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.25rem 0;
+
+    @media screen and (max-width: 1200px) {
+      padding: 1.25rem 1rem;
+    }
+
+    &__account {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &-menu {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__logo {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+.private-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  &__icon {
+    cursor: pointer;
+  }
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,57 @@
+<app-private-header></app-private-header>
+<div class="office">
+  <div class="info-panel">
+    <div class="info-panel__content">
+      <h2 class="office__title">My profile</h2>
+      <div class="info-panel__content-person person">
+        <div class="person__photo">
+          <img class="person__photo-item" [src]="getAvatar()" alt="avatar" />
+        </div>
+        <div class="person__info">
+          <div class="person__info-box">
+            <p class="person__info-box--name">{{ user?.first_name }}</p>
+            <a
+              class="person__info-box--edit"
+              routerLink="/profile/personal-info"
+            >
+              <img src="../../../assets/icons/edit.svg" alt="edit" />
+            </a>
+          </div>
+          <p class="person__info-social">{{ user?.email }}</p>
+          <p class="person__info-social">+{{ user?.phone }}</p>
+        </div>
+      </div>
+      <ul class="info-panel__content-chapters chapters">
+        <li class="chapters__link">
+          <a
+            class="chapters__link-item"
+            routerLink="/profile/personal-info"
+            routerLinkActive="active-link"
+            >Personal info</a
+          >
+        </li>
+        <li class="chapters__link">
+          <a
+            class="chapters__link-item"
+            routerLink="/profile/my-autos"
+            routerLinkActive="active-link"
+            >My autos</a
+          >
+        </li>
+        <li class="chapters__link">
+          <a
+            class="chapters__link-item"
+            routerLink="/profile/favorite"
+            routerLinkActive="active-link"
+            >Favorite</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="info-panel__outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

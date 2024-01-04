@@ -1,0 +1,18 @@
+<div [formGroup]="filterForm">
+<div *ngIf="checkboxList" [formArrayName]="'bodyType'">
+    <ng-container *ngFor="let checkbox of checkboxList; let i = index">
+        <mat-checkbox
+                (change)="onChangeFormValue($event, checkbox)"
+                [formControlName]="i"
+                color="primary">
+            {{ checkbox }}
+        </mat-checkbox>
+    </ng-container>
+</div>
+</div>
+<!--<div class="item-container" [formArrayName]="formArrayName">-->
+<!--    <ng-container *ngFor="let contactNumber of contactInfo | keyvalue; let i = index">-->
+<!--        <mat-checkbox [formControlName]="i">{{contactNumber.value}}</mat-checkbox>-->
+<!--        <br />-->
+<!--    </ng-container>-->
+<!--</div>-->

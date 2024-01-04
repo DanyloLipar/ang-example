@@ -1,0 +1,23 @@
+@import "../../../../../assets/styles/variables";
+
+:host {
+  .mat-expansion-panel {
+    margin-bottom: 0.125rem;
+
+    &-header {
+      font-size: 1.25rem;
+      height: 60px;
+    }
+  }
+}
+
+.general-questions {
+  background: $blue-1;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: $box-shadow-1;
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+}

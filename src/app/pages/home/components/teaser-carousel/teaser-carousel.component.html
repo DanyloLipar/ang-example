@@ -1,0 +1,34 @@
+<div class="teaser-carousel__header flex flex--justify-between flex--align-center">
+    <h2>The best deals on cars</h2>
+    <div>
+        <button (click)="slider.prev()"
+                mat-icon-button>
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button (click)="slider.next()"
+                mat-icon-button>
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </div>
+</div>
+<div #sliderRef
+     class="keen-slider">
+    <div class="keen-slider__slide">
+        <app-auto-teaser></app-auto-teaser>
+    </div>
+    <div class="keen-slider__slide">
+        <app-auto-teaser></app-auto-teaser>
+    </div>
+    <div class="keen-slider__slide">
+        <app-auto-teaser></app-auto-teaser>
+    </div>
+    <div class="keen-slider__slide">
+        <app-auto-teaser></app-auto-teaser>
+    </div>
+    <div class="keen-slider__slide">
+        <app-auto-teaser></app-auto-teaser>
+    </div>
+    <div class="keen-slider__slide">
+        <app-auto-teaser></app-auto-teaser>
+    </div>
+</div>

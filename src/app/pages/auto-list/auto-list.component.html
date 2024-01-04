@@ -1,0 +1,58 @@
+<div class="auto-list">
+  <div class="auto-list__header flex flex--justify-between">
+    <div class="flex flex--justify-between">
+      <div>
+        <h2>Search result</h2>
+        <p><span class="text--bold">186 299</span> offers</p>
+      </div>
+    </div>
+    <app-auto-rent-calculator
+      *ngIf="!!rentCalculatorValue"
+      [initialData]="rentCalculatorValue"
+      class="calculator"
+    >
+    </app-auto-rent-calculator>
+  </div>
+  <div class="auto-list__filter-chips">
+    <app-auto-filter-chips
+      (removeFilterValue)="removeFilterValue($event)"
+      [filterChips]="filterChips"
+    >
+    </app-auto-filter-chips>
+  </div>
+  <div class="auto-list__item auto flex flex--gap-2rem">
+    <div class="auto__filter display--desktop">
+      <app-auto-filter [filterForm]="filterForm"></app-auto-filter>
+    </div>
+    <div>
+      <app-register-offer
+        (changeRegistrationOffer)="changeRegistrationOffer($event)"
+        *ngIf="showRegistrationOffer"
+      ></app-register-offer>
+      <div class="flex flex--gap-2rem">
+        <app-auto-sort></app-auto-sort>
+        <div class="display--mobile">
+          <button
+            (click)="openFilters()"
+            class="button--filter"
+            mat-stroked-button
+          >
+            <mat-icon class="icon--filter">filter_list</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="flex flex--gap-1rem flex--wrap">
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+        <app-auto-card></app-auto-card>
+      </div>
+    </div>
+  </div>
+</div>
